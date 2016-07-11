@@ -34,7 +34,19 @@ class Api::PostsController < ApplicationController
     else
       render json: {errors: @post.errors}, status: 402
     end
-
   end
+
+  def delete
+    @post = Post.find_by id: params[:id]
+    @post.destroy
+    if @post
+      render json: {message: "Could not delete post."}, status: 201
+    else
+      render json: {message: "Deleted post!"}, status: 402
+    end
+  end
+
+
+
 
 end

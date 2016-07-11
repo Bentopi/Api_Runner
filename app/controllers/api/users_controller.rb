@@ -16,4 +16,15 @@ class Api::UsersController < ApplicationController
       render json: {errors: @user.errors}, status: 402
     end
   end
+
+  def delete
+    @user = User.find_by id: params[:id]
+    @user.destroy
+    if @user
+      render json: {message: "Could not delete user."}, status: 201
+    else
+      render json: {message: "Deleted User!"}, status: 402
+    end
+  end
+
 end

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'api/posts/:id' => 'api/posts#show'
   post 'api/posts' => 'api/posts#create'
   post 'api/users' => 'api/users#create'
-  delete 'api/posts' => 'api/posts#delete'
+  delete 'api/users/:id' => 'api/users#delete'
+  delete 'api/posts/:id' => 'api/posts#delete'
   put 'api/posts/:id' => 'api/posts#update'
 
 
